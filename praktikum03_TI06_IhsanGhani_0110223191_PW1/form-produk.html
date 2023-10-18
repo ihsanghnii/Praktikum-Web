@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ID">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>FORMULIR PEMESANAN BARANG</title>
+    </head>
+    <body style="background-color: navajowhite;">
+        <form action="hasil-product.html">
+        <table>
+            <tr>
+                <td>HOME</td>
+                <td>||</td>
+                <td>GENERATE LINK</td>
+                <td>||</td>
+                <td>TRANSACTION HISTORY</td>
+                <td>||</td>
+                <td>POLICY</td>
+                <td>||</td>
+                <td>LOGOUT</td>
+            </tr>
+        </table>
+        <hr>
+        <h1>FORMULIR PEMESANAN BARANG</h1>
+        <h3>PHONE STORE ID</h3>
+        <h3>Jl.MARGONDA RAYA NO.99 DEPOK</h3>
+        <hr>
+        <br>
+        <fieldset style="1px:border solid;background-color: beige;">
+        <label>UPLOAD FOTO : </label>
+        <input type="file" required />
+        <br>
+        <br>
+        <label>NAMA BARANG</label>
+        <input type="text" required />
+        <br>
+        <br>
+        <label>DESKRIPSI : </label>
+        <br>
+        <br>
+        <textarea rows="6" cols="35"></textarea>
+        </fieldset>
+        <br>
+        <fieldset style="1px:border solid;background-color: beige;">
+        <label>NAMA PEMESAN : </label>
+        <input type="text" required />
+        <br>
+        <br>
+        <label>ALAMAT PEMESAN : </label>
+        <input type="text" required />
+        <br>
+        <br>
+        <label>TANGGAL PEMESANAN : </label>
+        <input type="date" required />
+        <br>
+        <br>
+        <label>JUMLAH PEMESANAN : </label>
+        <select name="jumlahpemesanan" id="pemesanan">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <br>
+        <label>DETAIL PEMESANAN : </label>
+        <br>
+         <input type="checkbox" id="kirimkeemail" value="kirimkeemail">Kirim ke Email
+         <br>
+        <input type="checkbox" id="kirimkeponsel">Kirim ke Ponsel
+        <br>
+        <br>
+        <label>Nomor Handphone :</label>
+        <input type="number" id="number">
+        <br>
+        <br>
+        <label>Alamat Email : </label>
+        <input type="email" id="email">
+        </fieldset>
+        <br>
+        <fieldset style="1px:border solid;background-color: beige;">
+        <p>PEMBAYARAN : </p>
+        <input type="radio" name="pembayaran"><label for="bank">BANK : </label>
+        <select name="pembayaran" id="bank">
+            <option value="BCA">BCA</option>
+            <option value="BNI">BNI</option>
+            <option value="BSI">BSI</option>
+            <option value="MANDIRI">MANDIRI</option>
+            <option value="CIMB NIAGA">CIMB NIAGA</option>
+        </select>
+        <br>
+        <input type="radio" name="pembayaran" id="cash"><label for="cash">CASH</label>
+        </fieldset>
+        <br>
+        <input type="reset" value="BATAL">
+        <input type="submit" value="KIRIM">
+        </form>
+    </body>
+</html>

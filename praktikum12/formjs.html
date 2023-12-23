@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validasi</title>
+    <style>
+      body {
+        margin-top: 50px;
+        background-color: lightsteelblue;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      form {
+        padding-top: 30px;
+        padding-right: 90px;
+        padding-left: 65px;
+        padding-bottom: 30px;
+        border: 5px solid black;
+        background-color: lightslategrey;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      input[type="time"] {
+        width: 100%;
+        padding: 7px;
+        margin: 5px;
+        border-radius: 4px;
+      }
+
+      .submit-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      input[type="submit"] {
+        margin: auto;
+        background-color: rgb(26, 223, 26);
+        color: black;
+        border-radius: 7px;
+        width: 70px;
+        height: 30px;
+      }
+
+      .error {
+        color: red;
+        margin: 5px 0;
+      }
+
+      #hasil {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Form Validasi Pelanggan</h1>
+    <div class="container">
+      <form id="validasiForm">
+        <label for="nama"><b>Nama Pelanggan :</b></label>
+        <input
+          type="text"
+          id="nama"
+          name="nama"
+          placeholder="Nama Pelanggan"
+          maxlength="30"
+          required
+        />
+        <div id="namaError" class="error"></div>
+
+        <br />
+
+        <label for="email"><b>Email :</b></label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+        <div id="emailError" class="error"></div>
+
+        <br />
+
+        <label for="jam"><b>Jam Keberangkatan :</b></label>
+        <input type="time" name="jam" id="jam" required />
+        <div id="jamError" class="error"></div>
+
+        <br />
+
+        <label for="tujuan"><b>Tujuan Keberangkatan :</b></label>
+        <input
+          type="text"
+          id="tujuan"
+          name="tujuan"
+          placeholder="Tujuan Leberangkatan"
+          required
+        />
+        <div id="tujuanError" class="error"></div>
+
+        <br />
+
+        <label for="jumlah"><b>Jumlah Tiket :</b></label>
+        <input
+          type="number"
+          name="jumlah"
+          id="jumlah"
+          min="1"
+          max="10"
+          placeholder="Jumlah Tiket"
+          required
+        />
+        <div id="jumlahError" class="error"></div>
+
+        <br />
+        <br />
+
+        <div class="submit-container">
+          <input type="submit" value="Submit" />
+        </div>
+
+        <div id="hasil"></div>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById("validasiForm").addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var nama = document.getElementById("nama").value;
+          var email = document.getElementById("email").value;
+          var jam = document.getElementById("jam").value;
+          var tujuan = document.getElementById("tujuan").value;
+          var jumlah = document.getElementById("jumlah").value;
+          var valid = true;
+
+          // Nama Pelanggan
+          if (nama != "Ihsan Ghani") {
+            document.getElementById("namaError").innerText = "Format nama pelanggan tidak valid";
+            valid = false;
+          } else {
+            document.getElementById("namaError").innerText = "";
+          }
+
+          // Email
+          if (!email.match("ihsanghan01@gmail.com")) {
+            document.getElementById("emailError").innerText = "Format email pelanggan tidak valid";
+            valid = false;
+          } else {
+            document.getElementById("emailError").innerText = "";
+          }
+
+          // Jam Keberangkatan
+          if (!jam.match("13:00")) {
+            document.getElementById("jamError").innerText = "Format jam keberangkatan tidak valid";
+            valid = false;
+          } else {
+            document.getElementById("jamError").innerText = "";
+          }
+
+          // Tujuan Keberangkatan
+          if (tujuan != "Jakarta") {
+            document.getElementById("tujuanError").innerText = "Format tujuan keberangkatan tidak valid";
+            valid = false;
+          } else {
+            document.getElementById("tujuanError").innerText = "";
+          }
+
+          // Jumlah Tiket
+          if (jumlah != "2") {
+            document.getElementById("jumlahError").innerText = "Format jumlah tiket tidak valid";
+            valid = false;
+          } else {
+            document.getElementById("jumlahError").innerText = "";
+          }
+
+          if (valid) {
+            var hasilDiv = document.getElementById("hasil");
+            if (!hasilDiv) {
+              hasilDiv = document.createElement("div");
+              hasilDiv.id = "hasil";
+              document.body.appendChild(hasilDiv);
+            }
+            hasilDiv.innerHTML =
+              "<h2>Data Pelanggan :</h2>" +
+              "<p>Nama : " + nama + "</p>" +
+              "<p>Email : " + email + "</p>" +
+              "<p>Jam Keberangkatan : " + jam + "</p>" +
+              "<p>Tujuan Keberangkatan : " + tujuan + "</p>" +
+              "<p>Jumlah Tiket : " + jumlah + "</p>";
+          }
+        });
+    </script>
+  </body>
+</html>
